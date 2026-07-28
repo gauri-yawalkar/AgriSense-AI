@@ -1,0 +1,54 @@
+.comparison {
+  background-color: var(--bg-secondary);
+}
+
+.table-responsive {
+  overflow-x: auto;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0; /* Override glass-panel padding for table */
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.comparison-table th, 
+.comparison-table td {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.comparison-table th {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.comparison-table tr:last-child td {
+  border-bottom: none;
+}
+
+.highlight-col {
+  background-color: rgba(0, 153, 77, 0.05);
+  color: var(--accent-primary);
+  font-weight: 500;
+}
+
+.comparison-table th.highlight-col {
+  background-color: rgba(0, 153, 77, 0.1);
+}
+
+.text-error {
+  color: #ff4d4f;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
+.text-accent {
+  color: var(--accent-primary);
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}

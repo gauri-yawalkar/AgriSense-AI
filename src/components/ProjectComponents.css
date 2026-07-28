@@ -1,0 +1,25 @@
+.components {
+  background-color: var(--bg-secondary);
+}
+
+.comp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.comp-card {
+  padding: 2rem;
+  border-top: 4px solid var(--accent-primary);
+}
+
+.comp-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--accent-primary);
+}
+
+.comp-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
