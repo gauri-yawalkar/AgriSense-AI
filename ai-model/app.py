@@ -12,7 +12,9 @@ MODELS_BASE_PATH = os.path.dirname(os.path.abspath(__file__))
 
 # Available models mapping for standard inference
 AVAILABLE_MODELS = {
+    "Crop vs Weed": os.path.join(MODELS_BASE_PATH, "crop-weed", "best.pt"),
     "Plant Disease": os.path.join(MODELS_BASE_PATH, "plant-disease-classification-detection", "best.pt"),
+    "Crop Detection": os.path.join(MODELS_BASE_PATH, "crop-detection", "yolov8n.pt"),
 }
 
 # Weed pipeline models
