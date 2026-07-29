@@ -1,0 +1,158 @@
+.references-page {
+  padding: 100px 0 60px;
+}
+
+.references-header {
+  text-align: center;
+  padding: 40px 20px;
+  margin-bottom: 40px;
+}
+
+.references-header h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+.references-header h1 span {
+  color: var(--primary-color);
+}
+
+.references-header p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.references-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.references-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
+}
+
+.reference-section {
+  padding: 30px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding-bottom: 15px;
+}
+
+.ref-icon {
+  color: var(--primary-color);
+  width: 28px;
+  height: 28px;
+}
+
+.section-header h2 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: var(--text-color);
+}
+
+.reference-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.reference-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.reference-item:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+.ref-info h3 {
+  font-size: 1.1rem;
+  margin: 0 0 5px 0;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.ref-info p {
+  font-size: 0.9rem;
+  margin: 0;
+  color: var(--text-light);
+}
+
+.ext-icon {
+  color: #a0aec0;
+  transition: color 0.3s ease;
+}
+
+.reference-item:hover .ext-icon {
+  color: var(--primary-color);
+}
+
+.citation-box {
+  padding: 40px;
+  border-radius: 16px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.citation-box h3 {
+  font-size: 1.4rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+.citation-box blockquote {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--primary-color);
+  background-color: rgba(34, 197, 94, 0.05);
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid var(--primary-color);
+  margin: 0;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .references-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .references-header h1 {
+    font-size: 2.2rem;
+  }
+  
+  .citation-box blockquote {
+    font-size: 1rem;
+  }
+}

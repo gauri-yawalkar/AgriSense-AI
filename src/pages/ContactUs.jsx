@@ -1,11 +1,12 @@
 import React from 'react';
+import PageTransition from '../components/PageTransition';
 import Contact from '../components/Contact';
 
 const ContactUs = () => {
   return (
-    <div className="page-transition">
+    <PageTransition>
       <Contact />
-    </div>
+    </PageTransition>
   );
 };
 

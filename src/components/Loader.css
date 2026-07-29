@@ -1,0 +1,52 @@
+.loader-container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  border-radius: 0; /* Override glass-panel border radius */
+  border: none;
+  background: var(--bg-primary); /* Ensures it fills screen */
+}
+
+.loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  padding: 3rem;
+  border-radius: 24px;
+}
+
+.loader-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 2.5rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.loader-logo .brand-icon {
+  color: var(--accent-primary);
+}
+
+.svg-animation-container {
+  position: relative;
+  width: 200px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}

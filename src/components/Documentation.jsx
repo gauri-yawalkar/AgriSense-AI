@@ -3,10 +3,8 @@ import { FileText, Download, Code } from 'lucide-react';
 import './Documentation.css';
 
 const docs = [
-  { title: "Project Report", type: "PDF Document", size: "4.2 MB", icon: <FileText /> },
-  { title: "Presentation (PPT)", type: "Slides", size: "12.5 MB", icon: <FileText /> },
-  { title: "User Manual", type: "PDF Document", size: "1.8 MB", icon: <FileText /> },
-  { title: "Source Code", type: "GitHub Repository", size: "-", icon: <Code /> }
+  { title: "Project Description", type: "PDF Document", size: "4.2 MB", icon: <FileText /> },
+  { title: "Presentation (PPT)", type: "Slides", size: "12.5 MB", icon: <FileText /> }
 ];
 
 const Documentation = () => {

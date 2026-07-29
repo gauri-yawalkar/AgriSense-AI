@@ -6,12 +6,12 @@ const Contact = () => {
   return (
     <section id="contact" className="section contact">
       <div className="container">
-        <h2>Get in <span>Touch</span></h2>
+        <h2>{'Get in'} <span>{'Touch'}</span></h2>
         
         <div className="contact-grid">
           <div className="contact-info">
-            <h3>Connect with us</h3>
-            <p>Interested in learning more about AgriSense AI or collaborating? Reach out to us through our social channels or drop a message.</p>
+            <h3>{'Connect with us'}</h3>
+            <p>{'Interested in learning more about AgriSense or collaborating? Reach out to us through our social channels or drop a message.'}</p>
             
             <div className="social-links">
               <a href="#" className="social-link glass-panel">
@@ -32,19 +32,19 @@ const Contact = () => {
           <div className="contact-form glass-panel">
             <form>
               <div className="form-group">
-                <label>Name</label>
-                <input type="text" placeholder="Your Name" />
+                <label>{'Name'}</label>
+                <input type="text" placeholder={'Your Name'} />
               </div>
               <div className="form-group">
-                <label>Email</label>
-                <input type="email" placeholder="Your Email" />
+                <label>{'Email'}</label>
+                <input type="email" placeholder={'Your Email'} />
               </div>
               <div className="form-group">
-                <label>Message</label>
-                <textarea rows="4" placeholder="How can we help you?"></textarea>
+                <label>{'Message'}</label>
+                <textarea rows="4" placeholder={'How can we help you?'}></textarea>
               </div>
               <button type="button" className="btn btn-primary w-full">
-                Send Message <Send size={18} />
+                {'Send Message'} <Send size={18} />
               </button>
             </form>
           </div>

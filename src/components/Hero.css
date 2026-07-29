@@ -22,8 +22,7 @@
   position: absolute;
   filter: blur(80px);
   z-index: 0;
-  animation: float 10s ease-in-out infinite;
-  opacity: 0.5;
+  animation: blobFloat 20s infinite alternate;
 }
 
 .blob-1 {
@@ -102,4 +101,95 @@
   .hero-tagline { font-size: 1.1rem; }
   .hero-cta { flex-direction: column; width: 100%; max-width: 300px; margin: 0 auto; }
   .hero-cta .btn { width: 100%; }
+}
+
+/* Simulation Modal */
+.simulation-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.simulation-modal-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.simulation-modal-content {
+  position: relative;
+  width: 90vw;
+  height: 80vh;
+  background: rgba(20, 25, 20, 0.9);
+  border: 1px solid rgba(0, 153, 77, 0.3);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.simulation-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.simulation-close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.simulations-container {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+}
+
+.simulation-window {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.simulation-title {
+  text-align: center;
+  padding: 1rem;
+  margin: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 1.2rem;
+  color: white;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .simulations-container {
+    flex-direction: column;
+  }
 }

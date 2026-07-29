@@ -1,11 +1,12 @@
 import React from 'react';
+import PageTransition from '../components/PageTransition';
 import Team from '../components/Team';
 
 const AboutTeam = () => {
   return (
-    <div className="page-transition">
+    <PageTransition>
       <Team />
-    </div>
+    </PageTransition>
   );
 };
 
