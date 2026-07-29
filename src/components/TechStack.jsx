@@ -63,8 +63,8 @@ const TechStack = () => {
               <h3>{'AI & Models'}</h3>
             </div>
             <div className="stack-items">
-              <span className="stack-badge ai-badge">{'YOLOv8 (Object Detection)'}</span>
-              <span className="stack-badge ai-badge">{'Custom Recommendation Engine'}</span>
+              <span className="stack-badge">{'YOLOv8 (Object Detection)'}</span>
+              <span className="stack-badge">{'Custom Recommendation Engine'}</span>
             </div>
           </div>
         </div>

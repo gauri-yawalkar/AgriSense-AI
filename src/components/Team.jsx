@@ -5,14 +5,15 @@ import anushkaImg from '../assets/team member with images/Anushka.webp';
 import gouriImg from '../assets/team member with images/Gouri Yawalkar.webp';
 import niketanImg from '../assets/team member with images/Niketan Toke.jpg';
 import sanketImg from '../assets/team member with images/sanket.webp';
+import aakashImg from '../assets/team member with images/Aakash Padmukh.jpeg';
 
 const Team = () => {
   const teamMembers = [
     { name: "Anushka Suraskar", role: "Team Lead", icon: "AS", image: anushkaImg },
-    { name: "Sanket Patil", role: "Chassis & Machining", icon: "SP", image: sanketImg },
-    { name: "Gouri Yawalkar", role: "Software & Data Logs", icon: "GY", image: gouriImg },
-    { name: "Niketan Toke", role: "Embedded Systems", icon: "NT", image: niketanImg },
-    { name: "Aakash", role: "Sensor Integration", icon: "A", image: null }
+    { name: "Sanket Patil", role: "Team Member", icon: "SP", image: sanketImg },
+    { name: "Gouri Yawalkar", role: "Team Member", icon: "GY", image: gouriImg },
+    { name: "Niketan Toke", role: "Team Member", icon: "NT", image: niketanImg },
+    { name: "Aakash Padmukh", role: "Team Member", icon: "AP", image: aakashImg }
   ];
 
   return (

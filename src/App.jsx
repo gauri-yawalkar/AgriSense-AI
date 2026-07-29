@@ -7,9 +7,9 @@ import Home from './pages/Home';
 import Technology from './pages/Technology';
 import Performance from './pages/Performance';
 import References from './pages/References';
-import Docs from './pages/Docs';
 import AboutTeam from './pages/AboutTeam';
 import ContactUs from './pages/ContactUs';
+import DiseaseDetection from './pages/DiseaseDetection';
 import Loader from './components/Loader';
 import AnimatedBackground from './components/AnimatedBackground';
 import './App.css';
@@ -22,10 +22,10 @@ function MainRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/technology" element={<Technology />} />
         <Route path="/performance" element={<Performance />} />
-        <Route path="/docs" element={<Docs />} />
         <Route path="/team" element={<AboutTeam />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/references" element={<References />} />
+        <Route path="/detection" element={<DiseaseDetection />} />
       </Routes>
     </AnimatePresence>
   );

@@ -20,7 +20,7 @@ const Footer = () => {
         <div className="footer-contact-col">
           <h4 className="footer-heading">{'GET IN TOUCH'}</h4>
           <ul className="footer-links">
-            <li><a href="mailto:team@agrisense.com">team@agrisense.com</a></li>
+            <li><a href="mailto:robodroneclub@gmail.com">robodroneclub@gmail.com</a></li>
             <li><a href="https://github.com/AgriSense" target="_blank" rel="noopener noreferrer">github.com/AgriSense</a></li>
             <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
           </ul>
@@ -36,7 +36,6 @@ const Footer = () => {
               <li><Link to="/performance">{'Performance'}</Link></li>
             </ul>
             <ul className="footer-links">
-              <li><Link to="/docs">{'Docs'}</Link></li>
               <li><Link to="/team">{'Team'}</Link></li>
               <li><Link to="/references">{'References'}</Link></li>
               <li><Link to="/contact">{'Contact'}</Link></li>

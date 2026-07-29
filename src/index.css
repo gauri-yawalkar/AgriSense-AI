@@ -2,9 +2,9 @@
 
 :root {
   /* Colors (Dark Theme - White & Green) */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8faf9;
-  --bg-tertiary: #edf2f0;
+  --bg-primary: transparent;
+  --bg-secondary: transparent;
+  --bg-tertiary: transparent;
 
   --accent-primary: #00994d;
   /* Forest green */

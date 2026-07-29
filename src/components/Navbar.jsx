@@ -15,9 +15,9 @@ const Navbar = () => {
 
         <div className={`nav-links ${isOpen ? 'open' : ''}`}>
           <NavLink to="/" onClick={() => setIsOpen(false)}>{'Home'}</NavLink>
+          <NavLink to="/detection" onClick={() => setIsOpen(false)}>{'AI Detection'}</NavLink>
           <NavLink to="/technology" onClick={() => setIsOpen(false)}>{'Technology'}</NavLink>
           <NavLink to="/performance" onClick={() => setIsOpen(false)}>{'Progress'}</NavLink>
-          <NavLink to="/docs" onClick={() => setIsOpen(false)}>{'Docs'}</NavLink>
           <NavLink to="/team" onClick={() => setIsOpen(false)}>{'Team'}</NavLink>
           <NavLink to="/contact" onClick={() => setIsOpen(false)}>{'Contact'}</NavLink>
           <NavLink to="/references" onClick={() => setIsOpen(false)}>{'References'}</NavLink>

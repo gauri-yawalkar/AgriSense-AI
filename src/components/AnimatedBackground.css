@@ -62,19 +62,18 @@
   top: -50px;
 }
 
-/* Particles Layer */
-.particles-container {
+/* Floating Elements Layer */
+.floating-elements-container {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: -10%; /* Slight bleed to avoid popping in */
+  left: -10%;
+  width: 120%;
+  height: 120%;
   z-index: 3;
 }
 
-.particle {
+.floating-element {
   position: absolute;
-  background-color: #22c55e;
-  border-radius: 50%;
-  filter: blur(1px);
+  pointer-events: none;
+  will-change: transform;
 }

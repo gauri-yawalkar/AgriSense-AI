@@ -2,86 +2,123 @@ import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import './AnimatedBackground.css';
 
+// SVG paths for small leaves and seeds
+const LEAF_PATH = "M50 90 Q10 70 30 20 Q70 10 90 40 Q80 80 50 90 Z";
+const SEED_PATH = "M50 10 C30 10 20 40 50 90 C80 40 70 10 50 10 Z";
+const SMALL_LEAF_PATH = "M20 80 C 10 60, 40 10, 80 20 C 90 40, 60 90, 20 80 Z";
+
 const AnimatedBackground = () => {
   const { scrollY } = useScroll();
-  const [windowHeight, setWindowHeight] = useState(0);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setWindowHeight(window.innerHeight);
-    const handleResize = () => setWindowHeight(window.innerHeight);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    setIsClient(true);
   }, []);
 
-  // Parallax transforms for the botanical elements
+  // Parallax transforms for the large background corner elements
   const y1 = useTransform(scrollY, [0, 3000], [0, -400]);
   const y2 = useTransform(scrollY, [0, 3000], [0, -200]);
   const y3 = useTransform(scrollY, [0, 3000], [0, -600]);
 
-  // Generate random particles
-  const particles = Array.from({ length: 25 }).map((_, i) => ({
-    id: i,
-    size: Math.random() * 6 + 2, // 2px to 8px
-    left: `${Math.random() * 100}%`,
-    top: `${Math.random() * 100}%`,
-    duration: Math.random() * 20 + 15, // 15s to 35s
-    delay: Math.random() * 10,
-  }));
+  // Generate floating elements
+  const floatingElements = React.useMemo(() => {
+    if (!isClient) return [];
+    
+    return Array.from({ length: 35 }).map((_, i) => {
+      const isSeed = Math.random() > 0.6;
+      const path = isSeed ? SEED_PATH : (Math.random() > 0.5 ? LEAF_PATH : SMALL_LEAF_PATH);
+      
+      // Randomize properties
+      const size = Math.random() * 20 + 10; // 10px to 30px
+      const startX = Math.random() * 100; // vw
+      const startY = Math.random() * 100; // vh
+      const duration = Math.random() * 30 + 30; // 30s to 60s for slow movement
+      const delay = Math.random() * -60; // negative delay so they are already moving
+      const opacity = Math.random() * 0.1 + 0.1; // 0.1 to 0.2 (10% to 20%)
+      const rotate = Math.random() * 360;
+      
+      // Wind movement: drift around
+      const xOffset = Math.random() * 200 + 100;
+      const yOffset = Math.random() * 200 - 100;
+      const rotationOffset = Math.random() * 360 - 180;
+
+      return {
+        id: i,
+        path,
+        size,
+        startX: `${startX}vw`,
+        startY: `${startY}vh`,
+        duration,
+        delay,
+        opacity,
+        rotate,
+        xOffset,
+        yOffset,
+        rotationOffset
+      };
+    });
+  }, [isClient]);
 
   return (
     <div className="animated-background">
       {/* Soft overlay gradient */}
       <div className="bg-gradient-overlay"></div>
 
-      {/* Parallax SVG Elements */}
+      {/* Large Parallax Elements */}
       <motion.div className="botanical-layer layer-1" style={{ y: y1 }}>
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="svg-leaf leaf-left">
-          <path d="M50 90 Q10 70 30 20 Q70 10 90 40 Q80 80 50 90 Z" fill="currentColor" />
+        <svg viewBox="0 0 100 100" className="svg-leaf leaf-left">
+          <path d={LEAF_PATH} fill="currentColor" />
         </svg>
       </motion.div>
 
       <motion.div className="botanical-layer layer-2" style={{ y: y2 }}>
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="svg-seed seed-right">
-          <path d="M50 10 C30 10 20 40 50 90 C80 40 70 10 50 10 Z" fill="currentColor" />
+        <svg viewBox="0 0 100 100" className="svg-seed seed-right">
+          <path d={SEED_PATH} fill="currentColor" />
         </svg>
       </motion.div>
 
       <motion.div className="botanical-layer layer-3" style={{ y: y3 }}>
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="svg-leaf leaf-bottom-left">
-           <path d="M20 80 C 10 60, 40 10, 80 20 C 90 40, 60 90, 20 80 Z" fill="currentColor" />
+        <svg viewBox="0 0 100 100" className="svg-leaf leaf-bottom-left">
+           <path d={SMALL_LEAF_PATH} fill="currentColor" />
         </svg>
       </motion.div>
 
-      <motion.div className="botanical-layer layer-4" style={{ y: y1 }}>
-         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="svg-branch branch-top-right">
-            <path d="M10 90 Q 50 50 90 10 M 50 50 Q 70 60 80 90 M 30 70 Q 10 50 20 20" stroke="currentColor" strokeWidth="4" fill="none" strokeLinecap="round" />
-         </svg>
-      </motion.div>
-
-      {/* Floating Particles (Dust/Pollen) */}
-      <div className="particles-container">
-        {particles.map((p) => (
+      {/* Floating Leaves and Seeds */}
+      <div className="floating-elements-container">
+        {floatingElements.map((el) => (
           <motion.div
-            key={p.id}
-            className="particle"
+            key={el.id}
+            className="floating-element"
             style={{
-              width: p.size,
-              height: p.size,
-              left: p.left,
-              top: p.top,
+              position: 'absolute',
+              width: el.size,
+              height: el.size,
+              left: el.startX,
+              top: el.startY,
+              opacity: el.opacity,
+              color: '#16a34a',
+            }}
+            initial={{
+               rotate: el.rotate,
+               x: 0,
+               y: 0
             }}
             animate={{
-              y: [0, -100, 0],
-              x: [0, Math.random() * 50 - 25, 0],
-              opacity: [0.1, 0.4, 0.1],
+              x: [0, el.xOffset, 0],
+              y: [0, el.yOffset, 0],
+              rotate: [el.rotate, el.rotate + el.rotationOffset, el.rotate],
             }}
             transition={{
-              duration: p.duration,
-              delay: p.delay,
+              duration: el.duration,
+              delay: el.delay,
               repeat: Infinity,
               ease: "linear",
             }}
-          />
+          >
+            <svg viewBox="0 0 100 100" width="100%" height="100%">
+              <path d={el.path} fill="currentColor" />
+            </svg>
+          </motion.div>
         ))}
       </div>
     </div>

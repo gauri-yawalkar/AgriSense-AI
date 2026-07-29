@@ -16,7 +16,7 @@ const Contact = () => {
             <div className="social-links">
               <a href="#" className="social-link glass-panel">
                 <Mail className="text-accent" />
-                <span>contact@agrisense.ai</span>
+                <span>robodroneclub@gmail.com</span>
               </a>
               <a href="#" className="social-link glass-panel">
                 <Briefcase className="text-accent" />
