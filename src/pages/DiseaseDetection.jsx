@@ -1,4 +1,6 @@
 import React, { useState, useRef } from 'react';
+import PageTransition from '../components/PageTransition';
+import { UploadCloud, Activity, ImageIcon, AlertCircle, CheckCircle2 } from 'lucide-react';
 import './DiseaseDetection.css';
 
 const DiseaseDetection = () => {
@@ -73,78 +75,104 @@ const DiseaseDetection = () => {
     };
 
     return (
-        <div className="disease-detection-container">
-            <header className="detection-header">
-                <h1>AI Pathology Diagnostics</h1>
-                <p>Upload a leaf image for immediate disease analysis using our AI models</p>
-            </header>
+        <PageTransition>
+            <section className="section disease-detection-section">
+                <div className="container disease-detection-container">
+                    <header className="detection-header">
+                        <h2><span className="text-gradient">AI Pathology</span> Diagnostics</h2>
+                        <p>Upload a leaf image for immediate disease analysis using our advanced AI models</p>
+                    </header>
 
-            <div className="detection-panel">
-                <div className="control-group">
-                    <div className="upload-section">
-                        <label>Upload Sample Image</label>
-                        <div 
-                            className="upload-area"
-                            onDragOver={handleDragOver}
-                            onDrop={handleDrop}
-                            onClick={() => fileInputRef.current.click()}
-                        >
-                            <p>Click to browse or drag and drop image here</p>
-                            <p className="upload-hint">Supports JPG, PNG</p>
+                    <div className="glass-panel detection-panel">
+                        <div className="control-group">
+                            <div className="upload-section">
+                                <label>Upload Sample Image</label>
+                                <div 
+                                    className={`upload-area ${selectedFile ? 'has-file' : ''}`}
+                                    onDragOver={handleDragOver}
+                                    onDrop={handleDrop}
+                                    onClick={() => fileInputRef.current.click()}
+                                >
+                                    {selectedFile ? (
+                                        <CheckCircle2 size={48} className="upload-icon success" />
+                                    ) : (
+                                        <UploadCloud size={48} className="upload-icon" />
+                                    )}
+                                    <p>{selectedFile ? selectedFile.name : 'Click to browse or drag and drop image here'}</p>
+                                    <p className="upload-hint">Supports JPG, PNG</p>
+                                </div>
+                                <input 
+                                    type="file" 
+                                    ref={fileInputRef} 
+                                    style={{ display: 'none' }} 
+                                    accept="image/*"
+                                    onChange={handleFileChange}
+                                />
+                            </div>
+
+                            <button 
+                                className="btn btn-primary analyze-btn" 
+                                disabled={!selectedFile || isLoading}
+                                onClick={runAnalysis}
+                            >
+                                {isLoading ? (
+                                    <div className="loader"></div>
+                                ) : (
+                                    <>
+                                        <Activity size={20} />
+                                        Run Analysis
+                                    </>
+                                )}
+                            </button>
                         </div>
-                        <input 
-                            type="file" 
-                            ref={fileInputRef} 
-                            style={{ display: 'none' }} 
-                            accept="image/*"
-                            onChange={handleFileChange}
-                        />
-                    </div>
 
-                    <button 
-                        className="analyze-btn" 
-                        disabled={!selectedFile || isLoading}
-                        onClick={runAnalysis}
-                    >
-                        {isLoading ? <div className="loader"></div> : 'Run Analysis'}
-                    </button>
-                </div>
+                        <div className="result-section">
+                            <h3>Analysis Results</h3>
+                            <div className="preview-container">
+                                {!previewUrl && (
+                                    <div className="empty-state">
+                                        <ImageIcon size={48} className="empty-icon" />
+                                        <p>No image uploaded yet.</p>
+                                    </div>
+                                )}
+                                
+                                {previewUrl && (
+                                    <div className="result-item original-image">
+                                        <h4>Original Image</h4>
+                                        <div className="image-wrapper">
+                                            <img src={previewUrl} alt="Original" />
+                                        </div>
+                                    </div>
+                                )}
 
-                <div className="result-section">
-                    <h3>Analysis Results</h3>
-                    <div className="preview-container">
-                        {!previewUrl && (
-                            <span className="empty-state">No image uploaded yet.</span>
-                        )}
-                        
-                        {previewUrl && (
-                            <div className="result-item">
-                                <h4>Original Image</h4>
-                                <img src={previewUrl} alt="Original" />
+                                {isLoading && (
+                                    <div className="empty-state loading-state">
+                                        <div className="loader lg"></div>
+                                        <p className="loading-text">Analyzing with all models...</p>
+                                    </div>
+                                )}
+
+                                {results && Object.entries(results).map(([modelName, base64Img]) => (
+                                    <div className="result-item" key={modelName}>
+                                        <h4>{modelName}</h4>
+                                        <div className="image-wrapper">
+                                            <img src={`data:image/jpeg;base64,${base64Img}`} alt={`${modelName} Result`} />
+                                        </div>
+                                    </div>
+                                ))}
+
+                                {errors && Object.entries(errors).map(([modelName, errorMsg]) => (
+                                    <div className="result-item error-item" key={modelName}>
+                                        <h4><AlertCircle size={16} /> {modelName}</h4>
+                                        <p>Failed to run model.</p>
+                                    </div>
+                                ))}
                             </div>
-                        )}
-
-                        {isLoading && (
-                            <span className="empty-state loading-text">Analyzing with all models...</span>
-                        )}
-
-                        {results && Object.entries(results).map(([modelName, base64Img]) => (
-                            <div className="result-item" key={modelName}>
-                                <h4>{modelName}</h4>
-                                <img src={`data:image/jpeg;base64,${base64Img}`} alt={`${modelName} Result`} />
-                            </div>
-                        ))}
-
-                        {errors && Object.entries(errors).map(([modelName, errorMsg]) => (
-                            <div className="result-item error-item" key={modelName}>
-                                <h4>{modelName} (Error)</h4>
-                                <p>Failed to run model.</p>
-                            </div>
-                        ))}
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
+        </PageTransition>
     );
 };
 
