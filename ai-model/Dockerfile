@@ -23,8 +23,9 @@ RUN mkdir -p OUTPUT && chmod 777 OUTPUT
 RUN useradd -m -u 1000 user
 USER user
 
-# Hugging Face Spaces exposes port 7860
-EXPOSE 7860
+# Standard port for web services, but Render will override this with the PORT environment variable
+ENV PORT=10000
+EXPOSE $PORT
 
-# Run the app with Gunicorn
-CMD ["gunicorn", "-b", "0.0.0.0:7860", "--timeout", "120", "--workers", "1", "--threads", "2", "app:app"]
+# Run the app with Gunicorn, binding to the PORT environment variable
+CMD gunicorn -b 0.0.0.0:$PORT --timeout 120 --workers 1 --threads 2 app:app
