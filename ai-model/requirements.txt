@@ -1,4 +1,5 @@
 Flask>=2.0.0
+flask-cors
 ultralytics
 opencv-python-headless
 numpy

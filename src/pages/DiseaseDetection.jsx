@@ -97,7 +97,8 @@ const DiseaseDetection = () => {
             formData.append('plant', selectedPlant.name);
         }
 
-        const endpoint = mode === 'weed' ? '/predict/weed' : '/predict/leaf';
+        const baseUrl = import.meta.env.PROD ? 'https://agrisense-ai-qe5w.onrender.com' : '';
+        const endpoint = mode === 'weed' ? `${baseUrl}/predict/weed` : `${baseUrl}/predict/leaf`;
 
         try {
             const response = await fetch(endpoint, {
