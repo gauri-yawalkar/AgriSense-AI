@@ -17,6 +17,7 @@ AVAILABLE_MODELS = {
     "Crop vs Weed": os.path.join(MODELS_BASE_PATH, "crop-weed", "best.pt"),
     "Plant Disease": os.path.join(MODELS_BASE_PATH, "plant-disease-classification-detection", "best.pt"),
     "Crop Detection": os.path.join(MODELS_BASE_PATH, "crop-detection", "yolov8n.pt"),
+    "Tomato Disease": os.path.join(MODELS_BASE_PATH, "tomato", "best.pt"),
 }
 
 # Weed pipeline models
@@ -68,6 +69,13 @@ def predict():
         # Read image
         file_bytes = np.frombuffer(file.read(), np.uint8)
         img = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
+        
+        # OPTIMIZATION: Resize image if it's too large to save CPU and base64 encoding time
+        max_dim = 800
+        h, w = img.shape[:2]
+        if max(h, w) > max_dim:
+            scale = max_dim / max(h, w)
+            img = cv2.resize(img, (int(w * scale), int(h * scale)), interpolation=cv2.INTER_AREA)
 
         results_data = {}
         errors = {}
@@ -182,6 +190,13 @@ def predict_weed():
         file_bytes = np.frombuffer(file.read(), np.uint8)
         img = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
 
+        # OPTIMIZATION: Resize image
+        max_dim = 800
+        h, w = img.shape[:2]
+        if max(h, w) > max_dim:
+            scale = max_dim / max(h, w)
+            img = cv2.resize(img, (int(w * scale), int(h * scale)), interpolation=cv2.INTER_AREA)
+
         det_model = get_model_by_path(WEED_DET_PATH)
         cls_model = get_model_by_path(WEED_CLS_PATH)
 
@@ -260,7 +275,17 @@ def predict_leaf():
         file_bytes = np.frombuffer(file.read(), np.uint8)
         img = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
 
-        model = get_model("Plant Disease")
+        # OPTIMIZATION: Resize image
+        max_dim = 800
+        h, w = img.shape[:2]
+        if max(h, w) > max_dim:
+            scale = max_dim / max(h, w)
+            img = cv2.resize(img, (int(w * scale), int(h * scale)), interpolation=cv2.INTER_AREA)
+
+        if plant_type.lower() == 'tomato':
+            model = get_model("Tomato Disease")
+        else:
+            model = get_model("Plant Disease")
         results = model(img)
 
         annotated_img = results[0].plot()
