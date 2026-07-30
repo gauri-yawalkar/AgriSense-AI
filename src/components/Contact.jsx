@@ -20,7 +20,7 @@ const Contact = () => {
               </a>
               <a href="#" className="social-link glass-panel">
                 <Briefcase className="text-accent" />
-                <span>AgriSense Team</span>
+                <span>Team Gryphon'x 2.0</span>
               </a>
               <a href="#" className="social-link glass-panel">
                 <Code className="text-accent" />

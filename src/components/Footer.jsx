@@ -22,25 +22,35 @@ const Footer = () => {
           <ul className="footer-links">
             <li><a href="mailto:robodroneclub@gmail.com">robodroneclub@gmail.com</a></li>
             <li><a href="https://github.com/AgriSense" target="_blank" rel="noopener noreferrer">github.com/AgriSense</a></li>
-            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://linkedin.com/in/robo-and-drone-club-1bbab23b0" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
           </ul>
         </div>
 
-        {/* Right Column: Navigation */}
+        {/* Navigation Column */}
         <div className="footer-nav-col">
           <h4 className="footer-heading">{'NAVIGATE'}</h4>
           <div className="footer-nav-grid">
             <ul className="footer-links">
               <li><Link to="/">{'Home'}</Link></li>
               <li><Link to="/technology">{'Technology'}</Link></li>
-              <li><Link to="/performance">{'Performance'}</Link></li>
+              <li><Link to="/performance">{'Progress'}</Link></li>
             </ul>
             <ul className="footer-links">
               <li><Link to="/team">{'Team'}</Link></li>
-              <li><Link to="/references">{'References'}</Link></li>
               <li><Link to="/contact">{'Contact'}</Link></li>
             </ul>
           </div>
+        </div>
+
+        {/* References Column */}
+        <div className="footer-references-col">
+          <h4 className="footer-heading">{'REFERENCES'}</h4>
+          <ul className="footer-links">
+            <li><Link to="/references">Research & Technical</Link></li>
+            <li><Link to="/references">Sensors & Hardware</Link></li>
+            <li><Link to="/references">Crop Datasets</Link></li>
+            <li><Link to="/references">View All</Link></li>
+          </ul>
         </div>
       </div>
 
