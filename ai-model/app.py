@@ -2,9 +2,14 @@ import os
 import cv2
 import base64
 import numpy as np
+import json
 from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
 from ultralytics import YOLO
+import torch
+import torchvision.transforms as transforms
+from torchvision.models import efficientnet_b0
+from PIL import Image
 
 app = Flask(__name__)
 CORS(app)
@@ -23,6 +28,54 @@ AVAILABLE_MODELS = {
 # Weed pipeline models
 WEED_DET_PATH = os.path.join(MODELS_BASE_PATH, "Weed_Type", "best_model.pt")
 WEED_CLS_PATH = os.path.join(MODELS_BASE_PATH, "Weed_Type", "weed_cls_model.pt")
+
+# EfficientNet Models Configuration
+EFFNET_CONFIG = {
+    "corn": {
+        "model_path": os.path.join(MODELS_BASE_PATH, "corn", "best_corn_effnet.pth"),
+        "mapping_path": os.path.join(MODELS_BASE_PATH, "corn", "corn_class_mapping.json")
+    },
+    "potato": {
+        "model_path": os.path.join(MODELS_BASE_PATH, "potato", "best_potato_effnet.pth"),
+        "mapping_path": os.path.join(MODELS_BASE_PATH, "potato", "potato_class_mapping.json")
+    },
+    "rice": {
+        "model_path": os.path.join(MODELS_BASE_PATH, "rice", "best_rice_effnet.pth"),
+        "mapping_path": os.path.join(MODELS_BASE_PATH, "rice", "rice_class_mapping.json")
+    },
+    "sugarcane": {
+        "model_path": os.path.join(MODELS_BASE_PATH, "sugarcane", "best_sugarcane_effnet.pth"),
+        "mapping_path": os.path.join(MODELS_BASE_PATH, "sugarcane", "sugarcane_class_mapping.json")
+    },
+    "wheat": {
+        "model_path": os.path.join(MODELS_BASE_PATH, "wheat", "best_wheat_effnet.pth"),
+        "mapping_path": os.path.join(MODELS_BASE_PATH, "wheat", "wheat_class_mapping.json")
+    }
+}
+
+effnet_models = {}
+
+def get_effnet_model(model_path, num_classes):
+    if model_path not in effnet_models:
+        if not os.path.exists(model_path):
+            raise ValueError(f"Model path not found: {model_path}")
+        print(f"Loading EfficientNet model from {model_path}")
+        device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+        model = efficientnet_b0(weights=None)
+        num_ftrs = model.classifier[1].in_features
+        model.classifier[1] = torch.nn.Linear(num_ftrs, num_classes)
+        model.load_state_dict(torch.load(model_path, map_location=device, weights_only=True))
+        model = model.to(device)
+        model.eval()
+        effnet_models[model_path] = (model, device)
+    return effnet_models[model_path]
+
+effnet_transform = transforms.Compose([
+    transforms.Resize(256),
+    transforms.CenterCrop(224),
+    transforms.ToTensor(),
+    transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+])
 
 # Cache for loaded models to avoid reloading
 loaded_models = {}
@@ -282,31 +335,62 @@ def predict_leaf():
             scale = max_dim / max(h, w)
             img = cv2.resize(img, (int(w * scale), int(h * scale)), interpolation=cv2.INTER_AREA)
 
-        if plant_type.lower() == 'tomato':
-            model = get_model("Tomato Disease")
+        if '(pending)' in plant_type.lower():
+            return jsonify({"error": f"Model for {plant_type} is currently pending and not available."}), 400
+
+        if plant_type.lower() in EFFNET_CONFIG:
+            plant_key = plant_type.lower()
+            config = EFFNET_CONFIG[plant_key]
+            
+            with open(config["mapping_path"], "r") as f:
+                class_mapping = json.load(f)
+            num_classes = len(class_mapping)
+            
+            model, device = get_effnet_model(config["model_path"], num_classes)
+            
+            pil_img = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+            input_tensor = effnet_transform(pil_img).unsqueeze(0).to(device)
+            
+            with torch.no_grad():
+                outputs = model(input_tensor)
+                probabilities = torch.nn.functional.softmax(outputs[0], dim=0)
+                conf, pred_class = torch.max(probabilities, 0)
+                
+            label = class_mapping[str(pred_class.item())]
+            detections = [{"label": label, "confidence": round(conf.item(), 4)}]
+            
+            annotated_img = img.copy()
+            # Draw a simple background box for text
+            text = f"{label} {conf.item():.2f}"
+            (text_width, text_height), _ = cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, 1, 2)
+            cv2.rectangle(annotated_img, (10, 10), (10 + text_width, 10 + text_height + 10), (0, 0, 0), -1)
+            cv2.putText(annotated_img, text, (10, 10 + text_height + 5), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
         else:
-            model = get_model("Plant Disease")
-        results = model(img)
+            if plant_type.lower() == 'tomato':
+                model = get_model("Tomato Disease")
+            else:
+                model = get_model("Plant Disease")
+            
+            results = model(img)
+            annotated_img = results[0].plot()
 
-        annotated_img = results[0].plot()
+            # Extract detections
+            detections = []
+            result = results[0]
 
-        # Extract detections
-        detections = []
-        result = results[0]
-
-        # Handle detection model output (boxes)
-        if result.boxes is not None and len(result.boxes) > 0:
-            for box in result.boxes:
-                cls_id = int(box.cls[0])
-                conf = float(box.conf[0])
-                label = result.names[cls_id]
+            # Handle detection model output (boxes)
+            if result.boxes is not None and len(result.boxes) > 0:
+                for box in result.boxes:
+                    cls_id = int(box.cls[0])
+                    conf = float(box.conf[0])
+                    label = result.names[cls_id]
+                    detections.append({"label": label, "confidence": round(conf, 4)})
+            # Handle classification model output (probs)
+            elif result.probs is not None:
+                top_idx = result.probs.top1
+                conf = result.probs.top1conf.item()
+                label = result.names[top_idx]
                 detections.append({"label": label, "confidence": round(conf, 4)})
-        # Handle classification model output (probs)
-        elif result.probs is not None:
-            top_idx = result.probs.top1
-            conf = result.probs.top1conf.item()
-            label = result.names[top_idx]
-            detections.append({"label": label, "confidence": round(conf, 4)})
 
         # Save
         save_path = os.path.join(output_dir, f"{base_name}_Leaf_{timestamp}.jpg")

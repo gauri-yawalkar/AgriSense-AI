@@ -5,10 +5,13 @@ import './DiseaseDetection.css';
 
 const PLANT_OPTIONS = [
     { id: 'tomato', name: 'Tomato', emoji: '🍅' },
-    { id: 'sugarcane', name: 'Sugarcane', emoji: '🌾' },
-    { id: 'cotton', name: 'Cotton', emoji: '🌿' },
+    { id: 'corn', name: 'Corn', emoji: '🌽' },
     { id: 'potato', name: 'Potato', emoji: '🥔' },
-    { id: 'chillies', name: 'Chillies', emoji: '🌶️' },
+    { id: 'rice', name: 'Rice', emoji: '🌾' },
+    { id: 'sugarcane', name: 'Sugarcane', emoji: '🎋' },
+    { id: 'wheat', name: 'Wheat', emoji: '🌾' },
+    { id: 'cotton', name: 'Cotton (pending)', emoji: '🌿' },
+    { id: 'chillies', name: 'Chillies (pending)', emoji: '🌶️' },
 ];
 
 const DiseaseDetection = () => {
