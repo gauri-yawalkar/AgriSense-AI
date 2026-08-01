@@ -100,7 +100,8 @@ const DiseaseDetection = () => {
             formData.append('plant', selectedPlant.name);
         }
 
-        const baseUrl = import.meta.env.PROD ? 'https://agrisense-ai-qe5w.onrender.com' : '';
+        // Read from Vercel Environment Variables in Production, else use empty string (proxy)
+        const baseUrl = import.meta.env.PROD ? (import.meta.env.VITE_API_BASE_URL || '') : '';
         const endpoint = mode === 'weed' ? `${baseUrl}/predict/weed` : `${baseUrl}/predict/leaf`;
 
         try {
