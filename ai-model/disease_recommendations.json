@@ -1,0 +1,177 @@
+{
+  "Corn___Common_Rust": {
+    "severity": "Medium",
+    "symptoms": "Small tan flecks on both leaf surfaces develop into elongated, cinnamon-brown to reddish-brown powdery pustules; pustules darken to black late in the season.",
+    "chemical_treatment": "Spray Carbendazim 12% + Mancozeb 63% WP (e.g., SAAF) at 2g/L, or Propiconazole 25% EC (e.g., Tilt) at 1ml/L at first appearance of pustules. Azoxystrobin 18.2% + Difenoconazole 11.4% SC (e.g., Amistar Top) at 1ml/L also gives good control.",
+    "organic_treatment": "Spray neem oil (e.g., Neemazal, 5ml/L) at early pustule stage; treat seed with Trichoderma viride-enriched compost or FYM to strengthen plant vigor before sowing.",
+    "preventative_measures": "Plant rust-tolerant hybrids, avoid late sowing that pushes silking into cool humid weather that favors rust, maintain balanced potassium nutrition, and destroy crop residue after harvest."
+  },
+  "Corn___Gray_Leaf_Spot": {
+    "severity": "High",
+    "symptoms": "Small tan lesions with yellow halos mature into narrow, rectangular, gray-to-brown lesions running parallel to the leaf veins, eventually reducing green leaf area sharply.",
+    "chemical_treatment": "Spray Azoxystrobin 23% SC or Azoxystrobin + Difenoconazole (e.g., Amistar Top) at 1ml/L, or Propiconazole 25% EC (Tilt) at 1ml/L, once lesions reach the ear leaf around tasseling.",
+    "organic_treatment": "Trichoderma-based seed or soil treatment plus foliar neem oil (3-5ml/L) sprays at early symptom onset; work crop residue into the soil to speed decomposition of overwintering inoculum.",
+    "preventative_measures": "Rotate out of continuous maize for at least one season, choose tolerant hybrids, avoid excessive plant density, and manage residue since the fungus survives on old corn debris."
+  },
+  "Corn___Northern_Leaf_Blight": {
+    "severity": "High",
+    "symptoms": "Long, cigar-shaped, gray-green to tan lesions (roughly 2-15cm) form on leaves and can coalesce to blight the entire leaf under humid conditions.",
+    "chemical_treatment": "Spray Mancozeb 75% WP (Dithane M-45) at 2.5g/L, or Propiconazole 25% EC at 1ml/L, repeating after 10-15 days if humid weather continues.",
+    "organic_treatment": "Neem oil foliar spray (5ml/L) at first lesion appearance; Trichoderma viride seed treatment (6-10g/kg seed) to build early plant resistance.",
+    "preventative_measures": "Grow resistant or tolerant hybrids, rotate with non-host crops, and remove or plough under infected residue since the fungus overwinters on maize debris."
+  },
+  "Potato___Early_Blight": {
+    "severity": "Medium",
+    "symptoms": "Dark brown spots with concentric target-like rings appear on older, lower leaves first, often with a yellow halo; can spread to stems and tubers under prolonged wet weather.",
+    "chemical_treatment": "Spray Mancozeb 75% WP (Dithane M-45) at 2.5g/L on a 10-day schedule, or Chlorothalonil 75% WP (Kavach) at 2g/L; for heavier pressure use Difenoconazole 25% EC (e.g., Score) at 1ml/L.",
+    "organic_treatment": "Spray Trichoderma viride-based bio-fungicide or neem oil (3ml/L); a Panchagavya foliar spray every 15 days helps build general plant vigor and can delay disease onset.",
+    "preventative_measures": "Rotate with non-solanaceous crops for 2-3 years, avoid overhead irrigation, remove volunteer potato or tomato plants, and avoid excess nitrogen which produces soft, susceptible growth."
+  },
+  "Potato___Late_Blight": {
+    "severity": "High",
+    "symptoms": "Large, irregular water-soaked spots on leaves that turn dark brown-black, with white fungal growth on the underside in humid mornings; can rot tubers rapidly in the field and storage.",
+    "chemical_treatment": "Prophylactic spray of Mancozeb 75% WP (e.g., Dithane M-45) at 2.5g/L. On first appearance, switch to a systemic mix such as Metalaxyl 8% + Mancozeb 64% WP (Ridomil Gold) at 2.5g/L or Cymoxanil + Mancozeb (Curzate) at 3g/L.",
+    "organic_treatment": "Spray Copper Oxychloride 50% WP (e.g., Blitox 50) at 3g/L as a preventive, or apply Trichoderma viride-enriched manure at planting.",
+    "preventative_measures": "Use certified disease-free seed tubers, ensure good field drainage and airflow, avoid overhead irrigation in cool humid weather, and destroy volunteer plants and cull piles."
+  },
+  "Rice___Brown_Spot": {
+    "severity": "Medium",
+    "symptoms": "Small oval brown spots with a yellow halo appear on leaves, sheaths, and glumes; spots enlarge and merge on nutrient-poor or unflooded soils, sometimes discoloring the grain.",
+    "chemical_treatment": "Spray Mancozeb 75% WP at 2.5g/L or Propiconazole 25% EC (Tilt) at 1ml/L at the boot-leaf stage; Tebuconazole 25.9% EC at 1ml/L has also shown strong field control in Indian trials.",
+    "organic_treatment": "Treat seed with Trichoderma viride (10g/kg seed) before sowing; follow with a foliar neem oil spray (5ml/L) at early tillering.",
+    "preventative_measures": "Correct potash and zinc deficiency in the soil, since brown spot is worsened by poor soil fertility, use disease-free certified seed, and avoid moisture stress in the nursery."
+  },
+  "Rice___Leaf_Blast": {
+    "severity": "High",
+    "symptoms": "Spindle or diamond-shaped lesions with gray-white centers and brown margins appear on leaves; lesions coalesce and can burn out whole leaves under humid, high-nitrogen conditions.",
+    "chemical_treatment": "Spray Isoprothiolane 40% EC (e.g., Fuji-One) at 1.5ml/L or Kasugamycin 3% SL at 2.5ml/L at first symptom; Azoxystrobin+Tebuconazole or Azoxystrobin+Difenoconazole combinations are also effective. Note: Tricyclazole, long the standard treatment (e.g., Beam, Blast Out), is officially listed as restricted for use in India and is specifically banned in parts of Punjab/Haryana's Basmati belt during the export season due to residue limits, so confirm local rules before using it.",
+    "organic_treatment": "Soak seed in a Trichoderma viride or Pseudomonas fluorescens suspension (10g/L) before sowing; avoid heavy nitrogen top-dressing, which increases blast susceptibility.",
+    "preventative_measures": "Use blast-resistant varieties, avoid excess or unbalanced nitrogen doses, maintain shallow continuous flooding where possible, and always treat seed before sowing."
+  },
+  "Rice___Neck_Blast": {
+    "severity": "High",
+    "symptoms": "A brown-to-black lesion girdles the panicle neck (\"neck rot\"); the neck may break over or stay upright with chaffy, unfilled white grains, sharply cutting grain yield.",
+    "chemical_treatment": "Spray Isoprothiolane 40% EC at 1.5ml/L at boot-leaf stage and again at 50% panicle emergence, since neck blast cannot be cured once the neck lesion is established; Kasugamycin or Azoxystrobin+Tebuconazole are good alternatives where tricyclazole-based products are restricted (see Rice Leaf Blast note).",
+    "organic_treatment": "Treat seed with Trichoderma viride or Pseudomonas fluorescens before sowing; keep nitrogen scheduling balanced rather than heavy, to reduce susceptibility at panicle stage.",
+    "preventative_measures": "Time the panicle-stage spray precisely, a few days before and after 50% ear emergence, grow resistant varieties, and avoid heavy late-season nitrogen application."
+  },
+  "Sugarcane_Bacterial Blight": {
+    "severity": "Medium",
+    "symptoms": "Long, narrow, water-soaked green stripes appear near the leaf midrib and base, coalescing and turning red to necrotic; advanced infection causes foul-smelling stalk rot and \"top rot.\"",
+    "chemical_treatment": "No spray fully cures a systemic bacterial infection. Streptocycline (streptomycin sulphate + tetracycline) at 0.5g in 10L water sprayed on young shoots can suppress spread in early-detected patches, combined with Copper Oxychloride (e.g., Blitox) at 3g/L to protect surrounding healthy cane.",
+    "organic_treatment": "Dip setts in a Trichoderma viride or Pseudomonas fluorescens suspension before planting; avoid injuring cane during weeding, since the bacteria enter through wounds.",
+    "preventative_measures": "Plant only disease-free, hot-water-treated setts, avoid waterlogging, and rogue out and burn infected clumps promptly to stop field-to-field spread."
+  },
+  "Sugarcane_Mosaic": {
+    "severity": "Medium",
+    "symptoms": "Irregular light-and-dark green mosaic mottling appears on young leaves, sometimes with mild stunting; leaves in sensitive varieties may show reddish streaking as the disease progresses.",
+    "chemical_treatment": "No chemical cure exists for this virus; management is entirely preventive and vector-focused. Imidacloprid 17.8% SL (0.3ml/L) or Thiamethoxam 25% WG (0.2g/L) sprays reduce the aphid vector population and slow secondary spread.",
+    "organic_treatment": "Neem oil (5ml/L) or neem-seed-kernel-extract sprays discourage aphid vectors; encourage natural predators such as ladybird beetles in and around the field.",
+    "preventative_measures": "Plant only virus-free, tissue-culture or hot-water/meristem-treated setts, rogue out mosaic-affected clumps early, and grow resistant varieties where available."
+  },
+  "Sugarcane_Red Rot": {
+    "severity": "High",
+    "symptoms": "Internal stalk tissue reddens with characteristic white-to-pink transverse patches inside the cane, accompanied by a sour smell and drying, withering leaves; often called the \"cancer of sugarcane.\"",
+    "chemical_treatment": "No spray cures already-infected standing cane. Treat setts before planting by dipping in Carbendazim 50% WP (Bavistin) at 1g/L, or use hot water treatment (50\u00b0C for about 2 hours) to kill latent infection in seed material.",
+    "organic_treatment": "Dip setts in a Trichoderma viride or Trichoderma harzianum suspension before planting as an alternative to the chemical dip.",
+    "preventative_measures": "Grow red-rot-resistant or tolerant varieties and rotate them periodically since resistance breaks down over time, use only disease-free seed cane, rotate with a non-host crop such as legumes for 1-2 years, and destroy infected clumps and trash promptly."
+  },
+  "Sugarcane_Rust": {
+    "severity": "Medium",
+    "symptoms": "Elongated yellowish leaf streaks enlarge into orange-brown to reddish-brown powdery pustules, mainly on the lower leaf surface, running parallel to the leaf veins.",
+    "chemical_treatment": "Spray Propiconazole 25% EC (Tilt) at 1ml/L or Mancozeb 75% WP at 2.5g/L at first pustule appearance, repeating after 15 days if disease pressure continues.",
+    "organic_treatment": "Neem oil foliar spray (5ml/L); wettable sulphur (Sulphur 80% WDG, 2.5g/L) is also commonly used as a low-cost, organic-leaning option.",
+    "preventative_measures": "Choose rust-tolerant varieties, avoid excess nitrogen which increases leaf tenderness and susceptibility, and remove or burn heavily infected leaf trash after harvest."
+  },
+  "Sugarcane_Yellow": {
+    "severity": "High",
+    "symptoms": "Yellowing starts at the leaf midrib and spreads outward across the lamina of mature leaves, sometimes followed by tip reddening or necrosis; affected cane is visibly stunted with thin stalks.",
+    "chemical_treatment": "No chemical treatment cures this virus (Sugarcane Yellow Leaf Virus). Imidacloprid 17.8% SL (0.3ml/L) or Thiamethoxam 25% WG (0.2g/L) foliar sprays help control the aphid vector and reduce field spread.",
+    "organic_treatment": "Neem-based sprays (5ml/L) to suppress aphid vector populations; encourage natural aphid predators around the field margins.",
+    "preventative_measures": "Use only virus-tested, tissue-culture or meristem-raised planting material, rogue out yellow-leaf-affected clumps early, avoid moving setts from infected fields, and rotate susceptible varieties out with tolerant ones."
+  },
+  "Wheat___Brown_Rust": {
+    "severity": "Medium",
+    "symptoms": "Small, round-to-oval, orange-brown powdery pustules are scattered irregularly, not in lines, over the upper leaf surface.",
+    "chemical_treatment": "Spray Propiconazole 25% EC (Tilt) at 1ml/L, or Tebuconazole + Trifloxystrobin (Nativo) at 0.5g/L, at first pustule sighting, repeating after 15 days if conditions stay favorable for the disease.",
+    "organic_treatment": "A traditional buttermilk (lassi) spray, 1 litre diluted in 20 litres water, is used by organic growers at 10-day intervals; neem oil (5ml/L) is another organic-compatible option.",
+    "preventative_measures": "Sow rust-resistant or tolerant varieties, avoid very early or very late sowing dates that expose the crop to peak rust-favorable weather, and destroy volunteer wheat plants that carry inoculum between seasons."
+  },
+  "Wheat___Yellow_Rust": {
+    "severity": "High",
+    "symptoms": "Bright yellow-orange powdery pustules line up in narrow parallel stripes along the leaf veins, giving a distinctive \"railway-track\" pattern; locally known as \"Peeli Kungi.\"",
+    "chemical_treatment": "Spray Propiconazole 25% EC (Tilt) at 0.1% (1ml/L), the ICAR-recommended rate, at the first sign of yellow stripes. Tebuconazole + Trifloxystrobin (Nativo) at 0.5g/L is a stronger option under heavy pressure. Repeat after 15 days if the disease persists.",
+    "organic_treatment": "Buttermilk (lassi) spray, 1 litre in 20 litres water every 10 days, is a traditional remedy promoted by extension officers for organic growers; neem oil (5ml/L) can supplement it.",
+    "preventative_measures": "Grow resistant varieties suited to the local zone (check current IIWBR recommendations each season, since rust races shift), avoid dense sowing and excess nitrogen that promotes lodging, and report new outbreaks to the local Krishi Vigyan Kendra quickly, since the disease spreads fast in cool, humid weather."
+  },
+  "Tomato___Early_Blight": {
+    "severity": "Medium",
+    "symptoms": "Dark brown spots with concentric rings, a target or bulls-eye pattern, appear on older leaves first, often with yellowing around the spot; can spread to stems and fruit.",
+    "chemical_treatment": "Spray Mancozeb 75% WP (Dithane M-45) at 2.5g/L, or Chlorothalonil 75% WP (Kavach) at 2g/L, on a 7-10 day schedule; use Difenoconazole 25% EC (Score) at 1ml/L for heavier infection.",
+    "organic_treatment": "Neem oil (3-5ml/L) or Trichoderma viride-based bio-fungicide sprays; a Panchagavya foliar application every 10-15 days helps boost general plant immunity.",
+    "preventative_measures": "Stake plants and mulch to reduce soil splash onto lower leaves, rotate with non-solanaceous crops, avoid overhead irrigation, and remove infected lower leaves promptly."
+  },
+  "Tomato___Late_Blight": {
+    "severity": "High",
+    "symptoms": "Large, irregular water-soaked greasy patches appear on leaves and turn brown-black, with white fungal growth on the underside in humid weather; fruit develop firm, brown, greasy blotches.",
+    "chemical_treatment": "Spray Mancozeb 75% WP at 2.5g/L preventively; on outbreak switch to Metalaxyl + Mancozeb (Ridomil Gold) at 2.5g/L or Cymoxanil + Mancozeb (Curzate) at 3g/L for systemic, curative action.",
+    "organic_treatment": "Copper Oxychloride 50% WP (Blitox) at 3g/L as a preventive spray; apply Trichoderma viride to the soil at transplanting.",
+    "preventative_measures": "Use disease-free transplants, stake plants for airflow, avoid overhead irrigation especially in cool wet weather, and destroy volunteer and cull tomato or potato plants nearby."
+  },
+  "Tomato___Leaf_Mold": {
+    "severity": "Medium",
+    "symptoms": "Pale yellow patches appear on the upper leaf surface with matching olive-green to grayish-brown velvety mold growth on the underside; most common in polyhouse or greenhouse tomatoes with poor ventilation.",
+    "chemical_treatment": "Spray Mancozeb 75% WP at 2.5g/L, or Azoxystrobin 23% SC at 1ml/L, or Chlorothalonil 75% WP at 2g/L, aiming spray coverage at the leaf undersides where the mold forms.",
+    "organic_treatment": "Neem oil spray (3-5ml/L); improving ventilation and lowering humidity is the primary organic-compatible control, used alongside Trichoderma-based sprays.",
+    "preventative_measures": "Increase spacing and ventilation in polyhouses and greenhouses, avoid overhead watering, keep humidity below about 85% where possible, and remove lower leaves that stay wet longest."
+  },
+  "Tomato___Septoria_leaf_spot": {
+    "severity": "Medium",
+    "symptoms": "Numerous small circular spots with dark brown margins and pale tan-to-gray centers, dotted with tiny black specks (pycnidia), start on the oldest lower leaves and spread upward.",
+    "chemical_treatment": "Spray Mancozeb 75% WP (Dithane M-45) at 2.5g/L or Chlorothalonil 75% WP (Kavach) at 2g/L every 7-10 days once spots appear; Copper Oxychloride (Blitox) at 3g/L also works well.",
+    "organic_treatment": "Copper-oxychloride-based organic-approved sprays; neem oil (3-5ml/L); remove and destroy infected lower leaves as soon as they are spotted.",
+    "preventative_measures": "Rotate out of tomato and other solanaceous crops for 1-2 years, mulch to stop soil splash onto leaves, water at the base rather than overhead, and give plants 60cm or more of spacing for airflow."
+  },
+  "Tomato___Bacterial_Spot": {
+    "severity": "High",
+    "symptoms": "Small, dark, water-soaked spots on leaves that turn brown with yellow halos; fruit display raised, scab-like dark spots.",
+    "chemical_treatment": "Spray Copper Oxychloride 50% WP (Blitox 50) at 3g/L mixed with Streptocycline (6g in 60L water) or Copper Hydroxide (Kocide) at 2g/L.",
+    "organic_treatment": "Spray Copper-based organic formulation or Pseudomonas fluorescens (10g/L) to suppress bacterial populations on foliage.",
+    "preventative_measures": "Use certified disease-free seeds/transplants, avoid working in wet fields, and practice strict crop rotation with non-solanaceous crops."
+  },
+  "Tomato___Leaf_Miner": {
+    "severity": "Medium",
+    "symptoms": "Winding, serpentine white-to-gray mines or trails etched into leaf surfaces by feeding larvae.",
+    "chemical_treatment": "Spray Abamectin 1.9% EC at 0.5ml/L or Spinetoram 11.7% SC at 1ml/L or Cyantraniliprole 10.26% OD at 1.8ml/L.",
+    "organic_treatment": "Spray Neem oil (5ml/L) or Azadirachtin 10,000 ppm at 2ml/L; hang yellow sticky traps (15-20 traps/acre) to catch adult flies.",
+    "preventative_measures": "Collect and burn heavily mined lower leaves, keep field clear of weed hosts like wild solanaceous weeds, and preserve natural larval parasitoid wasps."
+  },
+  "Tomato___Mosaic_Virus": {
+    "severity": "High",
+    "symptoms": "Mottled dark green and light green mosaic pattern on leaves, leaf distortion, stunting, and fern-like leaf threadiness.",
+    "chemical_treatment": "No direct chemical cure for viral infections. Control vector insects (aphids, thrips) using Imidacloprid 17.8% SL at 0.5ml/L.",
+    "organic_treatment": "Spray Neem oil (5ml/L) to discourage vector insects; spray milk solution (10% skim milk) to inhibit mechanical virus transmission during handling.",
+    "preventative_measures": "Wash hands with soap before handling plants (especially smokers), use resistant tomato cultivars, and rogue out infected plants immediately."
+  },
+  "Tomato___Spider_Mites": {
+    "severity": "Medium",
+    "symptoms": "Fine yellow stippling or bronzing on upper leaf surface, accompanied by delicate webbing on leaf undersides under hot dry conditions.",
+    "chemical_treatment": "Spray Spiromesifen 22.9% SC (e.g., Oberon) at 1ml/L or Propargite 57% EC (e.g., Omite) at 2ml/L.",
+    "organic_treatment": "Spray sulfur 80% WP at 3g/L or Neem oil (5ml/L) thoroughly covering undersides of leaves; maintain field humidity to suppress mite explosions.",
+    "preventative_measures": "Avoid excessive nitrogen fertilizers, keep field borders clean of weeds, and preserve predatory mites."
+  },
+  "Tomato___Yellow_Leaf_Curl_Virus": {
+    "severity": "High",
+    "symptoms": "Severe stunting of plants, upward curling and yellowing of leaf margins, small leathery leaves, and flower drop leading to complete yield loss.",
+    "chemical_treatment": "No chemical cure for the virus. Control whitefly vectors by spraying Thiamethoxam 25% WG (e.g., Actara) at 0.5g/L or Diafenthiuron 50% WP (Pegasus) at 1.2g/L.",
+    "organic_treatment": "Install yellow sticky traps (25 traps/acre) to catch adult whiteflies; spray 5% Neem Seed Kernel Extract (NSKE) or Neem oil (5ml/L) every 7-10 days.",
+    "preventative_measures": "Use insect-proof net nurseries (40-mesh netting), plant resistant hybrids (e.g., Saaho, Abhinav), and remove infected plants immediately."
+  },
+  "Tomato___Healthy": {
+    "severity": "Low",
+    "symptoms": "No visible disease symptoms detected. Leaves show normal dark green coloration, vigor, and clean surfaces.",
+    "chemical_treatment": "No chemical treatment required.",
+    "organic_treatment": "Maintain regular organic feeding (FYM/compost) and periodic neem oil spray (3ml/L) as a routine preventive measure.",
+    "preventative_measures": "Ensure proper plant spacing, drip/base irrigation, balanced crop nutrition, and weekly field scouting."
+  }
+}

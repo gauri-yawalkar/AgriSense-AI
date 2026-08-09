@@ -94,7 +94,69 @@ def get_model_by_path(path):
         loaded_models[path] = YOLO(path)
     return loaded_models[path]
 
+# Load offline recommendations database
+RECOMMENDATIONS_DB_PATH = os.path.join(MODELS_BASE_PATH, "disease_recommendations.json")
+try:
+    with open(RECOMMENDATIONS_DB_PATH, "r") as f:
+        recommendations_db = json.load(f)
+except Exception as e:
+    print(f"Warning: Could not load recommendations database: {e}")
+    recommendations_db = {}
 
+def find_recommendation(label, plant_type=None):
+    # Dynamically reload JSON so we don't need to restart the server
+    try:
+        with open(RECOMMENDATIONS_DB_PATH, "r") as f:
+            current_db = json.load(f)
+    except Exception:
+        current_db = {}
+        
+    if not label or not current_db:
+        return None
+    
+    # Healthy fallback
+    if "healthy" in label.lower():
+        return {
+            "severity": "Low",
+            "symptoms": "No visible disease symptoms detected. Leaves show normal coloration and vigor.",
+            "chemical_treatment": "No chemical treatment required.",
+            "organic_treatment": "Maintain regular organic feeding (compost, FYM) and neem oil spray every 14 days as a routine preventive.",
+            "preventative_measures": "Ensure proper plant spacing, balanced irrigation at the base, and routine field monitoring."
+        }
+    
+    # 1. Direct match
+    if label in current_db:
+        return current_db[label]
+    
+    # 2. Try plant prefix
+    if plant_type:
+        plant_clean = plant_type.capitalize()
+        label_clean = label.replace(" ", "_")
+        candidates = [
+            f"{plant_clean}___{label_clean}",
+            f"{plant_clean}___{label}",
+            f"{plant_clean}_{label}",
+            f"{plant_clean}_{label_clean}"
+        ]
+        for cand in candidates:
+            if cand in current_db:
+                return current_db[cand]
+            for k in current_db:
+                if k.lower() == cand.lower():
+                    return current_db[k]
+                    
+    # 3. Fuzzy match fallback
+    lbl_lower = label.lower().replace("_", " ").replace("-", " ")
+    for key, val in current_db.items():
+        key_lower = key.lower().replace("_", " ").replace("-", " ")
+        if plant_type and plant_type.lower() in key_lower:
+            clean_key_disease = key_lower.replace(plant_type.lower(), "").strip()
+            if lbl_lower and (lbl_lower in clean_key_disease or clean_key_disease in lbl_lower):
+                return val
+        elif lbl_lower and lbl_lower in key_lower:
+            return val
+            
+    return None
 
 # ── NEW: Per-model endpoints for the redesigned frontend ──────────────
 
@@ -164,6 +226,13 @@ def predict_weed():
             cv2.rectangle(weed_img, (x1, y1 - text_height - 10), (x1 + text_width, y1), box_color, cv2.FILLED)
             text_color = (255, 255, 255) if class_name == "Unclassified" else (0, 0, 0)
             cv2.putText(weed_img, label, (x1, y1 - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.5, text_color, 1)
+
+        # Attach recommendations
+        for det in detections:
+            lbl = det["label"]
+            rec = find_recommendation(lbl, "Weed")
+            if rec:
+                det["recommendation"] = rec
 
         # Save
         save_path = os.path.join(output_dir, f"{base_name}_Weed_{timestamp}.jpg")
@@ -267,6 +336,13 @@ def predict_leaf():
                 conf = result.probs.top1conf.item()
                 label = result.names[top_idx]
                 detections.append({"label": label, "confidence": round(conf, 4)})
+
+        # Attach recommendations
+        for det in detections:
+            lbl = det["label"]
+            rec = find_recommendation(lbl, plant_type)
+            if rec:
+                det["recommendation"] = rec
 
         # Save
         save_path = os.path.join(output_dir, f"{base_name}_Leaf_{timestamp}.jpg")

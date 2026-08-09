@@ -135,12 +135,25 @@ const DiseaseDetection = () => {
         const analysisType = mode === 'weed' ? 'Weed Detection & Classification' : 'Leaf Analysis & Disease Prediction';
         const plantInfo = mode === 'leaf' && selectedPlant ? `<tr><td style="padding:8px 16px;font-weight:600;color:#4a5568;">Plant</td><td style="padding:8px 16px;color:#1a202c;">${selectedPlant.name}</td></tr>` : '';
 
-        const detectionsRows = detections.map((d, i) =>
-            `<tr style="background:${i % 2 === 0 ? '#f7faf8' : '#ffffff'}">
-                <td style="padding:10px 16px;color:#1a202c;">${d.label}</td>
+        const detectionsRows = detections.map((d, i) => {
+            let row = `<tr style="background:${i % 2 === 0 ? '#f7faf8' : '#ffffff'}">
+                <td style="padding:10px 16px;color:#1a202c;"><strong>${d.label}</strong></td>
                 <td style="padding:10px 16px;color:#1a202c;">${(d.confidence * 100).toFixed(1)}%</td>
-            </tr>`
-        ).join('');
+            </tr>`;
+            
+            if (d.recommendation) {
+                row += `<tr style="background:${i % 2 === 0 ? '#f7faf8' : '#ffffff'}">
+                    <td colspan="2" style="padding:10px 16px; border-top: 1px dashed #e2e8f0;">
+                        <h4 style="color:#00994d; margin-bottom:8px;">Agronomist Action Plan [${d.recommendation.severity} Risk]</h4>
+                        <p style="font-size:0.9rem; color:#4a5568; margin-bottom:8px;"><strong>Symptoms:</strong> ${d.recommendation.symptoms}</p>
+                        <p style="font-size:0.9rem; color:#4a5568; margin-bottom:8px;"><strong>Chemical Treatment:</strong> ${d.recommendation.chemical_treatment}</p>
+                        <p style="font-size:0.9rem; color:#4a5568; margin-bottom:8px;"><strong>Organic/Cultural:</strong> ${d.recommendation.organic_treatment}</p>
+                        <p style="font-size:0.9rem; color:#4a5568;"><strong>Prevention:</strong> ${d.recommendation.preventative_measures}</p>
+                    </td>
+                </tr>`;
+            }
+            return row;
+        }).join('');
 
         const html = `<!DOCTYPE html>
 <html lang="en">
@@ -441,12 +454,39 @@ const DiseaseDetection = () => {
                                                     <span>Confidence</span>
                                                 </div>
                                                 {detections.map((d, i) => (
-                                                    <div key={i} className="detection-row">
-                                                        <span className="detection-label">{d.label}</span>
-                                                        <span className="detection-confidence">
-                                                            <span className="conf-bar" style={{ width: `${d.confidence * 100}%` }}></span>
-                                                            {(d.confidence * 100).toFixed(1)}%
-                                                        </span>
+                                                    <div key={i} className="detection-wrapper">
+                                                        <div className="detection-row">
+                                                            <span className="detection-label">{d.label}</span>
+                                                            <span className="detection-confidence">
+                                                                <span className="conf-bar" style={{ width: `${d.confidence * 100}%` }}></span>
+                                                                {(d.confidence * 100).toFixed(1)}%
+                                                            </span>
+                                                        </div>
+                                                        {d.recommendation && (
+                                                            <div className="recommendation-card">
+                                                                <div className="rec-header">
+                                                                    <h4>Agronomist Action Plan</h4>
+                                                                    <span className={`severity-badge ${d.recommendation.severity.toLowerCase()}`}>
+                                                                        {d.recommendation.severity} Risk
+                                                                    </span>
+                                                                </div>
+                                                                <p className="rec-symptoms"><strong>Symptoms:</strong> {d.recommendation.symptoms}</p>
+                                                                <div className="rec-actions">
+                                                                    <div className="rec-action-box">
+                                                                        <h5>🧪 Chemical Treatment</h5>
+                                                                        <p>{d.recommendation.chemical_treatment}</p>
+                                                                    </div>
+                                                                    <div className="rec-action-box">
+                                                                        <h5>🌱 Organic/Cultural</h5>
+                                                                        <p>{d.recommendation.organic_treatment}</p>
+                                                                    </div>
+                                                                    <div className="rec-action-box">
+                                                                        <h5>🛡️ Prevention</h5>
+                                                                        <p>{d.recommendation.preventative_measures}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        )}
                                                     </div>
                                                 ))}
                                             </div>
