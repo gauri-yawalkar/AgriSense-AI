@@ -173,5 +173,145 @@
     "chemical_treatment": "No chemical treatment required.",
     "organic_treatment": "Maintain regular organic feeding (FYM/compost) and periodic neem oil spray (3ml/L) as a routine preventive measure.",
     "preventative_measures": "Ensure proper plant spacing, drip/base irrigation, balanced crop nutrition, and weekly field scouting."
+  },
+  "Kena": {
+    "severity": "Medium",
+    "symptoms": "Fleshy creeping stems with oval light-green leaves and small bright blue flowers; forms subterranean seeds and roots easily at nodes.",
+    "chemical_treatment": "Spray 2,4-D Amine Salt 58% SL at 2.5ml/L or Metribuzin 70% WP (e.g. Sencor) at 1g/L in crop rows, or Glufosinate Ammonium 13.5% SL (Sweeper) at 5ml/L in non-crop areas.",
+    "organic_treatment": "Uproot manually before flowering when soil is moist; use heavy organic mulch (straw/plastic) to block sunlight.",
+    "preventative_measures": "Destroy uprooted stems outside the field so they do not re-root; practice shallow cultivation before crop establishment."
+  },
+  "Lavhala": {
+    "severity": "High",
+    "symptoms": "Dark green, glossy grass-like leaves with triangular stems arising from extensive underground chains of tubers/nutlets.",
+    "chemical_treatment": "Selective post-emergence spray of Halosulfuron-methyl 75% WG (e.g. Sempra) at 36g/acre in sugarcane/maize; or Glyphosate 41% SL at 10ml/L in non-crop areas.",
+    "organic_treatment": "Deep summer ploughing (solarization) to expose underground tubers to intense dry heat; duck-foot cultivators to break tuber chains.",
+    "preventative_measures": "Avoid transferring soil or manure contaminated with nutlets; maintain dense crop canopy."
+  },
+  "Gajar_gavat": {
+    "severity": "High",
+    "symptoms": "Deeply lobed grayish-green leaves with small white flower heads; causes allergic dermatitis in humans and suppresses crop germination (allelopathy).",
+    "chemical_treatment": "Spray 2,4-D Ethyl Ester 38% EC at 2.5ml/L or Glyphosate 41% SL at 10-15ml/L before flowering stage.",
+    "organic_treatment": "Uproot manually wearing protective gloves before flowering; release bio-control beetle (Zygogramma bicolorata); spray 15-20% common salt solution.",
+    "preventative_measures": "Eradicate along field borders, irrigation channels, and roadsides before seed set."
+  },
+  "Graceful_Sandmat": {
+    "severity": "Low",
+    "symptoms": "Slender erect or ascending stems with opposite oval leaves and milky white latex sap when broken.",
+    "chemical_treatment": "Spray 2,4-D Sodium Salt 80% WP at 2g/L or Oxyfluorfen 23.5% EC at 1.5ml/L pre-emergence.",
+    "organic_treatment": "Hand pulling at early seedling stage; shallow hoeing between crop rows.",
+    "preventative_measures": "Maintain mulch cover and avoid over-irrigating field edges."
+  },
+  "Graceful_Sandmart": {
+    "severity": "Low",
+    "symptoms": "Slender erect or ascending stems with opposite oval leaves and milky white latex sap when broken.",
+    "chemical_treatment": "Spray 2,4-D Sodium Salt 80% WP at 2g/L or Oxyfluorfen 23.5% EC at 1.5ml/L pre-emergence.",
+    "organic_treatment": "Hand pulling at early seedling stage; shallow hoeing between crop rows.",
+    "preventative_measures": "Maintain mulch cover and avoid over-irrigating field edges."
+  },
+  "Sicklepod": {
+    "severity": "Medium",
+    "symptoms": "Erect woody herb with rounded paired leaflets and curved, sickle-shaped seed pods containing shiny brown seeds.",
+    "chemical_treatment": "Spray 2,4-D Amine Salt 58% SL at 2ml/L or Metribuzin 70% WP at 1g/L in soybean/cotton.",
+    "organic_treatment": "Hand weeding or hoeing before pod formation; collect young tender leaves as local edible green (Takla bhaji) before flowering.",
+    "preventative_measures": "Mowing or shallow tilling prior to seed setting to prevent seed bank buildup."
+  },
+  "Harali": {
+    "severity": "High",
+    "symptoms": "Fine-leaved creeping perennial grass that roots at nodes and forms dense tough mats via underground rhizomes.",
+    "chemical_treatment": "Selective post-emergence spray of Quizalofop-ethyl 5% EC (Targa Super) at 2ml/L in broadleaf crops; Glyphosate 41% SL at 12ml/L in fallow fields.",
+    "organic_treatment": "Repeated deep summer ploughing (May-June) to dry rhizomes in hot sun; smothering with thick organic mulch.",
+    "preventative_measures": "Clean farm implements and tractor cultivators to prevent transferring rhizome fragments between fields."
+  },
+  "Dwarf_cassia": {
+    "severity": "Low",
+    "symptoms": "Small prostrate to erect annual herb with tiny pinnate leaves that fold when touched and yellow flowers.",
+    "chemical_treatment": "Standard broadleaf post-emergence herbicides like 2,4-D Sodium Salt at 2g/L or Metribuzin at 0.75g/L.",
+    "organic_treatment": "Inter-row mechanical weeding; hand pulling during first weeding cycle (20-25 days).",
+    "preventative_measures": "Line sowing of crops to allow wheel hoeing."
+  },
+  "Punarnava": {
+    "severity": "Low",
+    "symptoms": "Diffuse prostrate herb with thick rootstock, wavy leaf margins, and small pink-to-purple flowers; sticky fruits attach to clothing/animals.",
+    "chemical_treatment": "Spray 2,4-D Amine Salt 58% SL at 2ml/L or Glyphosate 41% SL at 8ml/L in non-crop areas.",
+    "organic_treatment": "Shallow hoeing to sever taproot; hand pulling before seed maturation.",
+    "preventative_measures": "Keep field margins free of mature plants."
+  },
+  "Bathua": {
+    "severity": "Medium",
+    "symptoms": "Erect annual herb with pale mealy/powdery coating on young leaves and goosefoot-shaped leaf margins; major pest in Rabi crops.",
+    "chemical_treatment": "Spray 2,4-D Sodium Salt 80% WP at 2g/L or Metsulfuron-methyl 20% WP (Algrip) at 8g/acre in wheat at 30-35 days after sowing.",
+    "organic_treatment": "Hand weeding at 20-25 days after sowing; harvest young plants for edible culinary use.",
+    "preventative_measures": "Use clean certified crop seed free of Bathua seeds."
+  },
+  "Lamber_Quarter": {
+    "severity": "Medium",
+    "symptoms": "Erect annual herb with pale mealy/powdery coating on young leaves and goosefoot-shaped leaf margins; major pest in Rabi crops.",
+    "chemical_treatment": "Spray 2,4-D Sodium Salt 80% WP at 2g/L or Metsulfuron-methyl 20% WP (Algrip) at 8g/acre in wheat at 30-35 days after sowing.",
+    "organic_treatment": "Hand weeding at 20-25 days after sowing; harvest young plants for edible culinary use.",
+    "preventative_measures": "Use clean certified crop seed free of Bathua seeds."
+  },
+  "Chenopodium": {
+    "severity": "Medium",
+    "symptoms": "Erect annual herb with pale mealy/powdery coating on young leaves and goosefoot-shaped leaf margins; major pest in Rabi crops.",
+    "chemical_treatment": "Spray 2,4-D Sodium Salt 80% WP at 2g/L or Metsulfuron-methyl 20% WP (Algrip) at 8g/acre in wheat at 30-35 days after sowing.",
+    "organic_treatment": "Hand weeding at 20-25 days after sowing; harvest young plants for edible culinary use.",
+    "preventative_measures": "Use clean certified crop seed free of Bathua seeds."
+  },
+  "Little_Mallow": {
+    "severity": "Medium",
+    "symptoms": "Spreading or erect herb with round, cup-shaped leaves with crinkled edges and small white-to-pinkish flowers.",
+    "chemical_treatment": "Spray Carfentrazone-ethyl 40% DF (Affinity) at 20g/acre or 2,4-D Ester at 2ml/L in cereal crops.",
+    "organic_treatment": "Hand hoeing before deep taproot formation; mulching with organic crop residues.",
+    "preventative_measures": "Timely early weeding during crop emergence."
+  },
+  "Moti_dudhi": {
+    "severity": "Medium",
+    "symptoms": "Stout erect herb with hollow stems, large oval leaves with pale undersides, and abundant milky latex sap.",
+    "chemical_treatment": "Post-emergence spray of Fomesafen 11.1% + Fluazifop-p-butyl 11.1% SL (Fusiflex) in soybean; Oxyfluorfen pre-emergence.",
+    "organic_treatment": "Hand pulling wearing gloves; inter-row cultivation at 20 DAP.",
+    "preventative_measures": "Prevent seed formation as capsules explode and scatter seeds up to 5 meters."
+  },
+  "Obscure_morning_glory": {
+    "severity": "Medium",
+    "symptoms": "Twining vine with heart-shaped leaves and yellow-to-cream funnel-shaped flowers that entangle crop stalks.",
+    "chemical_treatment": "Spray 2,4-D Amine Salt 58% SL at 2.5ml/L or Metribuzin 70% WP at 1g/L before vines climb crops.",
+    "organic_treatment": "Manual un-twining and root severing before flowering; heavy organic mulching.",
+    "preventative_measures": "Control along fence lines and trellises before crop canopy establishment."
+  },
+  "Obscure_morning": {
+    "severity": "Medium",
+    "symptoms": "Twining vine with heart-shaped leaves and yellow-to-cream funnel-shaped flowers that entangle crop stalks.",
+    "chemical_treatment": "Spray 2,4-D Amine Salt 58% SL at 2.5ml/L or Metribuzin 70% WP at 1g/L before vines climb crops.",
+    "organic_treatment": "Manual un-twining and root severing before flowering; heavy organic mulching.",
+    "preventative_measures": "Control along fence lines and trellises before crop canopy establishment."
+  },
+  "Asian_Pigeonwings": {
+    "severity": "Low",
+    "symptoms": "Deep blue funnel-shaped flowers on twining perennial climber with compound leaves.",
+    "chemical_treatment": "Spot spray with 2,4-D Amine at 2ml/L or Glyphosate in non-crop boundaries.",
+    "organic_treatment": "Hand pulling and taproot cutting; mulching.",
+    "preventative_measures": "Boundary management and clearing prior to pod maturity."
+  },
+  "Bilayat": {
+    "severity": "High",
+    "symptoms": "Spiny thistle-like herb with blue-green prickly leaves, bright yellow latex sap, and yellow flowers; toxic mustard oil contaminant.",
+    "chemical_treatment": "Spray 2,4-D Sodium Salt 80% WP at 2.5g/L or Oxyfluorfen 23.5% EC at 1.5ml/L.",
+    "organic_treatment": "Hand pulling with thick gloves before spiny seed capsules develop.",
+    "preventative_measures": "Crucial to remove from mustard fields to avoid seed contamination during harvest."
+  },
+  "Choti_dudhi": {
+    "severity": "Low",
+    "symptoms": "Hairy prostrate herb with purplish tinged opposite leaves, milky sap, and dense round flower clusters at nodes.",
+    "chemical_treatment": "Spray 2,4-D Sodium Salt at 2g/L or Pendimethalin 30% EC pre-emergence at 3.3ml/L.",
+    "organic_treatment": "Hand hoeing; shallow inter-row cultivation.",
+    "preventative_measures": "Keep nursery beds and drip lines clean."
+  },
+  "Digitaria_SP": {
+    "severity": "Medium",
+    "symptoms": "Spreading grass with flat leaf blades and finger-like flower spikes; roots at lower stem nodes.",
+    "chemical_treatment": "Spray Quizalofop-p-ethyl 5% EC at 2ml/L or Fenoxaprop-p-ethyl 9.3% EC (Whip Super) at 1.5ml/L in broadleaf crops.",
+    "organic_treatment": "Hoeing at 2-3 leaf stage; heavy organic straw mulch.",
+    "preventative_measures": "Dense crop planting to shade out emerging seedlings."
   }
 }

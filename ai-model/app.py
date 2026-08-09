@@ -124,18 +124,24 @@ def find_recommendation(label, plant_type=None):
             "preventative_measures": "Ensure proper plant spacing, balanced irrigation at the base, and routine field monitoring."
         }
     
+    # Clean label (strip leading numbers like '0.Kena_' or '10.Gajar_')
+    import re
+    cleaned_label = re.sub(r'^[0-9\.\s]+', '', label)
+
     # 1. Direct match
     if label in current_db:
         return current_db[label]
+    if cleaned_label in current_db:
+        return current_db[cleaned_label]
     
     # 2. Try plant prefix
     if plant_type:
         plant_clean = plant_type.capitalize()
-        label_clean = label.replace(" ", "_")
+        label_clean = cleaned_label.replace(" ", "_")
         candidates = [
             f"{plant_clean}___{label_clean}",
-            f"{plant_clean}___{label}",
-            f"{plant_clean}_{label}",
+            f"{plant_clean}___{cleaned_label}",
+            f"{plant_clean}_{cleaned_label}",
             f"{plant_clean}_{label_clean}"
         ]
         for cand in candidates:
@@ -146,14 +152,14 @@ def find_recommendation(label, plant_type=None):
                     return current_db[k]
                     
     # 3. Fuzzy match fallback
-    lbl_lower = label.lower().replace("_", " ").replace("-", " ")
+    lbl_lower = cleaned_label.lower().replace("_", " ").replace("-", " ")
     for key, val in current_db.items():
         key_lower = key.lower().replace("_", " ").replace("-", " ")
         if plant_type and plant_type.lower() in key_lower:
             clean_key_disease = key_lower.replace(plant_type.lower(), "").strip()
             if lbl_lower and (lbl_lower in clean_key_disease or clean_key_disease in lbl_lower):
                 return val
-        elif lbl_lower and lbl_lower in key_lower:
+        elif lbl_lower and (lbl_lower in key_lower or key_lower in lbl_lower):
             return val
             
     return None
