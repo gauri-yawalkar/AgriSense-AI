@@ -140,7 +140,9 @@ def predict_weed():
             if crop_img.size == 0:
                 continue
 
-            cls_results = cls_model.predict(crop_img, verbose=False)
+            # Convert crop from OpenCV BGR format to RGB format for classification model
+            crop_img_rgb = cv2.cvtColor(crop_img, cv2.COLOR_BGR2RGB)
+            cls_results = cls_model.predict(crop_img_rgb, verbose=False)
             cls_result = cls_results[0]
 
             top_idx = cls_result.probs.top1

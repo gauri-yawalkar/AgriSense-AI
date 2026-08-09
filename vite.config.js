@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/predict': {
-        target: 'http://192.168.1.13:5000',
+        target: 'http://127.0.0.1:5000',
         changeOrigin: true
       }
     }

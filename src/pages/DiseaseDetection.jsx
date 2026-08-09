@@ -4,14 +4,14 @@ import { UploadCloud, Activity, ImageIcon, AlertCircle, CheckCircle2, Leaf, Bug,
 import './DiseaseDetection.css';
 
 const PLANT_OPTIONS = [
-    { id: 'tomato', name: 'Tomato', emoji: '🍅' },
-    { id: 'corn', name: 'Corn', emoji: '🌽' },
-    { id: 'potato', name: 'Potato', emoji: '🥔' },
-    { id: 'rice', name: 'Rice', emoji: '🌾' },
-    { id: 'sugarcane', name: 'Sugarcane', emoji: '🎋' },
-    { id: 'wheat', name: 'Wheat', emoji: '🌾' },
-    { id: 'cotton', name: 'Cotton (pending)', emoji: '🌿' },
-    { id: 'chillies', name: 'Chillies (pending)', emoji: '🌶️' },
+    { id: 'tomato', name: 'Tomato', emoji: '🍅', isPending: false },
+    { id: 'corn', name: 'Corn', emoji: '🌽', isPending: false },
+    { id: 'potato', name: 'Potato', emoji: '🥔', isPending: false },
+    { id: 'rice', name: 'Rice', emoji: '🌾', isPending: false },
+    { id: 'sugarcane', name: 'Sugarcane', emoji: '🎋', isPending: false },
+    { id: 'wheat', name: 'Wheat', emoji: '🌾', isPending: false },
+    { id: 'cotton', name: 'Cotton', emoji: '🌿', isPending: true },
+    { id: 'chillies', name: 'Chillies', emoji: '🌶️', isPending: true },
 ];
 
 const DiseaseDetection = () => {
@@ -51,6 +51,10 @@ const DiseaseDetection = () => {
     };
 
     const handlePlantSelect = (plant) => {
+        if (plant.isPending) {
+            setError(`The model for ${plant.name} is currently coming soon in an upcoming update.`);
+            return;
+        }
         setSelectedPlant(plant);
         setStep('upload');
     };
@@ -319,9 +323,17 @@ const DiseaseDetection = () => {
                             <p className="plant-subtitle">Choose the plant type you want to analyze</p>
                             <div className="plant-grid">
                                 {PLANT_OPTIONS.map((plant) => (
-                                    <div key={plant.id} className="plant-card" onClick={() => handlePlantSelect(plant)}>
+                                    <div 
+                                        key={plant.id} 
+                                        className={`plant-card ${plant.isPending ? 'pending-card' : ''}`} 
+                                        onClick={() => handlePlantSelect(plant)}
+                                        title={plant.isPending ? `${plant.name} model coming soon` : `Analyze ${plant.name}`}
+                                    >
                                         <span className="plant-emoji">{plant.emoji}</span>
-                                        <span className="plant-name">{plant.name}</span>
+                                        <span className="plant-name">
+                                            {plant.name}
+                                            {plant.isPending && <span className="pending-badge">Soon</span>}
+                                        </span>
                                     </div>
                                 ))}
                             </div>
