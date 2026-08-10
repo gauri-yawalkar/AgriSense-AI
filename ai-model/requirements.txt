@@ -4,3 +4,5 @@ ultralytics
 opencv-python-headless
 numpy
 gunicorn
+torch
+torchvision
