@@ -5,7 +5,7 @@ import anushkaImg from '../assets/team member with images/Anushka.webp';
 import gouriImg from '../assets/team member with images/Gouri Yawalkar.webp';
 import niketanImg from '../assets/team member with images/Niketan Toke.jpg';
 import sanketImg from '../assets/team member with images/sanket.webp';
-import aakashImg from '../assets/team member with images/Aakash Padmukh.jpeg';
+import sumitImg from '../assets/team member with images/sumit.jpeg';
 import nirmayeeImg from '../assets/team member with images/Nirmayee Vaidya.jpeg';
 import facultyImg from '../assets/team member with images/Dr Kanchan S Vaidya.jpg';
 
@@ -15,7 +15,7 @@ const Team = () => {
     { name: "Sanket Patil", role: "Team Member", icon: "SP", image: sanketImg },
     { name: "Gouri Yawalkar", role: "Team Member", icon: "GY", image: gouriImg },
     { name: "Niketan Toke", role: "Team Member", icon: "NT", image: niketanImg },
-    { name: "Aakash Padmukh", role: "Team Member", icon: "AP", image: aakashImg },
+    { name: "Sumit Gupta", role: "Team Member", icon: "SG", image: sumitImg },
     { name: "Nirmayee Vaidya", role: "Team Member", icon: "NV", image: nirmayeeImg }
   ];
 
@@ -40,14 +40,14 @@ const Team = () => {
           ))}
         </div>
 
-        <h3 className="faculty-heading">Faculty Co-ordinator</h3>
+        <h3 className="faculty-heading">Faculty Mentor</h3>
         <div className="faculty-container">
           <div className="team-card glass-panel faculty-card">
             <div className="team-avatar">
               <img src={facultyImg} alt="Dr. Kanchan S. Vaidya" className="team-image" />
             </div>
             <h3>Dr. Kanchan S. Vaidya</h3>
-            <p>Faculty Co-ordinator</p>
+            <p>Faculty Mentor</p>
           </div>
         </div>
       </div>
