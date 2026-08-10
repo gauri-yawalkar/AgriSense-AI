@@ -2,11 +2,11 @@ import React from 'react';
 import './Team.css';
 
 import anushkaImg from '../assets/team member with images/Anushka.webp';
-import gouriImg from '../assets/team member with images/Gouri Yawalkar.webp';
+import gouriImg from '../assets/team member with images/gouri.jpeg';
 import niketanImg from '../assets/team member with images/Niketan Toke.jpg';
 import sanketImg from '../assets/team member with images/sanket.webp';
 import sumitImg from '../assets/team member with images/sumit.jpeg';
-import nirmayeeImg from '../assets/team member with images/Nirmayee Vaidya.jpeg';
+import nirmayeeImg from '../assets/team member with images/nirmayee.jpeg';
 import facultyImg from '../assets/team member with images/Dr Kanchan S Vaidya.jpg';
 
 const Team = () => {
@@ -22,7 +22,7 @@ const Team = () => {
   return (
     <section id="team" className="section team">
       <div className="container">
-        <h2>{'Team'} <span>{"GRYPHON'X 2.O — T4T"}</span></h2>
+        <h2>{'Team'} <span>{"GRYPHON'X 2.0"}</span></h2>
 
         <div className="team-grid">
           {teamMembers.map((member, index) => (
