@@ -39,7 +39,7 @@ function App() {
   };
 
   return (
-    <Router basename="/agrisense-ai">
+    <Router>
       <AnimatePresence>
         {isLoading ? (
           <motion.div
