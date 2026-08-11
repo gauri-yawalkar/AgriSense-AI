@@ -112,6 +112,9 @@ const DiseaseDetection = () => {
             const response = await fetch(endpoint, {
                 method: 'POST',
                 body: formData,
+                headers: {
+                    'ngrok-skip-browser-warning': 'true'
+                }
             });
 
             const data = await response.json();
@@ -140,7 +143,7 @@ const DiseaseDetection = () => {
                 <td style="padding:10px 16px;color:#1a202c;"><strong>${d.label}</strong></td>
                 <td style="padding:10px 16px;color:#1a202c;">${(d.confidence * 100).toFixed(1)}%</td>
             </tr>`;
-            
+
             if (d.recommendation) {
                 row += `<tr style="background:${i % 2 === 0 ? '#f7faf8' : '#ffffff'}">
                     <td colspan="2" style="padding:10px 16px; border-top: 1px dashed #e2e8f0;">
@@ -336,9 +339,9 @@ const DiseaseDetection = () => {
                             <p className="plant-subtitle">Choose the plant type you want to analyze</p>
                             <div className="plant-grid">
                                 {PLANT_OPTIONS.map((plant) => (
-                                    <div 
-                                        key={plant.id} 
-                                        className={`plant-card ${plant.isPending ? 'pending-card' : ''}`} 
+                                    <div
+                                        key={plant.id}
+                                        className={`plant-card ${plant.isPending ? 'pending-card' : ''}`}
                                         onClick={() => handlePlantSelect(plant)}
                                         title={plant.isPending ? `${plant.name} model coming soon` : `Analyze ${plant.name}`}
                                     >
