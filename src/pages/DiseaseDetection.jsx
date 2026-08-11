@@ -10,8 +10,6 @@ const PLANT_OPTIONS = [
     { id: 'rice', name: 'Rice', emoji: '🌾', isPending: false },
     { id: 'sugarcane', name: 'Sugarcane', emoji: '🎋', isPending: false },
     { id: 'wheat', name: 'Wheat', emoji: '🌾', isPending: false },
-    { id: 'cotton', name: 'Cotton', emoji: '🌿', isPending: true },
-    { id: 'chillies', name: 'Chillies', emoji: '🌶️', isPending: true },
 ];
 
 const DiseaseDetection = () => {
