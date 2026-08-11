@@ -34,3 +34,5 @@ ai-model/venv/
 env/
 ENV/
 *.venv
+
+.vercel

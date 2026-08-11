@@ -200,8 +200,9 @@
 }
 
 .plant-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1rem;
 }
 
@@ -216,6 +217,7 @@
     background: rgba(255, 255, 255, 0.3);
     cursor: pointer;
     transition: all var(--transition-normal);
+    flex: 0 1 140px;
 }
 
 .plant-card:hover {
